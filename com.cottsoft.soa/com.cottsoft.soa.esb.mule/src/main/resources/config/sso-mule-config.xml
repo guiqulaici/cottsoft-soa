@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"  
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+       xmlns:spring="http://www.springframework.org/schema/beans"  
+       xmlns:stdio="http://www.mulesoft.org/schema/mule/stdio"  
+       xmlns:ws="http://www.mulesoft.org/schema/mule/ws"  
+       xmlns:http="http://www.mulesoft.org/schema/mule/http"  
+       xmlns:pattern="http://www.mulesoft.org/schema/mule/pattern"  
+    xsi:schemaLocation="  
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd  
+       http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd  
+       http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd  
+       http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd  
+       http://www.mulesoft.org/schema/mule/pattern http://www.mulesoft.org/schema/mule/pattern/current/mule-pattern.xsd  
+       http://www.mulesoft.org/schema/mule/stdio http://www.mulesoft.org/schema/mule/stdio/current/mule-stdio.xsd">  
+  
+<flow name="ssoLoginProxy">
+  <http:inbound-endpoint keep-alive="false"
+   address="http://localhost:8080/com.cottsoft.soa.esb.mule/ssoLogin" encoding="UTF-8"
+   disableTransportTransformer="false" exchange-pattern="request-response" />
+  <http:outbound-endpoint method="GET"
+   keep-alive="false"
+   address="http://localhost:8080/com.cottsoft.soa.app.sso/ws/LoginService"
+   responseTimeout="10000" encoding="UTF-8" disableTransportTransformer="false"
+   followRedirects="false" exchange-pattern="request-response" />
+ </flow>  
+  
+  <!-- 
+ <pattern:web-service-proxy name="ssoLoginProxy" inboundAddress="http://localhost:65081/services/getRegionDataset"  
+            outboundAddress="http://webservice.webxml.com.cn/WebServices/WeatherWS.asmx?op=getRegionDataset">  
+ </pattern:web-service-proxy>  
+  
+ <ws:proxy name="ssoLoginProxy" inboundAddress="http://localhost:8080/services/WeatherWS"   
+               outboundAddress="http://webservice.webxml.com.cn/WebServices/WeatherWS.asmx"/>  
+               -->
+</mule>  
