@@ -22,32 +22,27 @@ import javax.jws.WebService;
 
 import org.springframework.stereotype.Component;
 
-import com.cottsoft.soa.app.sso.ws.api.ILoginService;
+import com.cottsoft.soa.app.sso.service.ISSOLoginService;
+import com.cottsoft.soa.app.sso.service.impl.SSOLoginService;
+import com.cottsoft.soa.app.sso.ws.api.ILoginWebService;
 
 /**
  * Class Description: <br> 
  * SSO登录WS API访问实现类
  * @author  Simon.Hoo(simon@cottsoft.com)
- * @date    Oct 04, 2013
+ * @date    Oct 4, 2013
  * @version v1.0
  * @since   1.0
  */
-@WebService(endpointInterface = "com.cottsoft.soa.app.sso.ws.api.ILoginService", serviceName = "LoginService")
-@Component("ws.LoginService")
-public class LoginService implements ILoginService {
+@WebService(endpointInterface = "com.cottsoft.soa.app.sso.ws.api.ILoginWebService", serviceName = "LoginWebService")
+@Component("loginWebService")
+public class LoginWebService implements ILoginWebService {
 
 	@Override
 	public boolean ssoLogin(String userId, String password, String checkCode) {
-		boolean isSuccessed = false;		
-		//TODO 测试写死
-		if(userId!=null && userId.trim().length()>3){
-			if(password!=null && password.trim().length()>3){
-				if(password.equals(userId.substring(0, 1).toLowerCase()+".123")){
-					isSuccessed = true;
-				}
-			}
-		}
-		return isSuccessed;
+		ISSOLoginService ssoLoginService = new SSOLoginService();
+		
+		return ssoLoginService.ssoLogin(userId, password, checkCode);
 	}
 
 }

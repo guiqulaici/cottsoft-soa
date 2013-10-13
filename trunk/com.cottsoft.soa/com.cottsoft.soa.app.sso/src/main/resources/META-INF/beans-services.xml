@@ -12,10 +12,10 @@
 
 
 	<!-- 新添加的内容 start -->
-	<jaxws:server id="ws.SSOLogin" serviceClass="com.cottsoft.soa.app.sso.ws.api.ILoginService"
-		address="/LoginService">
+	<jaxws:server id="loginWebService" serviceClass="com.cottsoft.soa.app.sso.ws.api.ILoginWebService"
+		address="/LoginWebService">
 		<jaxws:serviceBean>
-			<ref bean="ws.LoginService" />
+			<ref bean="loginWebService" />
 		</jaxws:serviceBean>
 	</jaxws:server>
 	<!-- 新添加的内容 end -->
