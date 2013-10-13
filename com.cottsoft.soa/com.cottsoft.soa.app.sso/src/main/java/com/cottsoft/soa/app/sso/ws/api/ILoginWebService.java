@@ -28,8 +28,8 @@ import javax.jws.WebService;
  * @version v1.0
  * @since   1.0
  */
-@WebService(name="LoginService")
-public interface ILoginService {
+@WebService(name="LoginWebService")
+public interface ILoginWebService {
 	
 	/**
 	 * Description: <br>
