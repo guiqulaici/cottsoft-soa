@@ -8,5 +8,19 @@
 </head>
 <body>
 	<h1>HR,人力资源系统!</h1>
+	
+	<form action="loginServlet" method="post">
+		<table>
+			<tr>
+				<td length="100">User Name: </td>
+				<td><input name="userName" type="text" size="20"></td>
+			</tr>
+			<tr>
+				<td>Password:</td>
+				<td><input name="password" type="password" size="20"></td>
+			</tr>
+		</table>
+		<input name="btnLogin" type="submit" value="Login">
+	</form>
 </body>
 </html>

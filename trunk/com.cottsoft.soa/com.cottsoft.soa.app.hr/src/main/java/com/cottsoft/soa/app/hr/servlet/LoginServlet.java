@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/LoginServlet")
+@WebServlet("/loginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -26,15 +26,30 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		this.doPost(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		MuleClient client = new MuleClient();
-//		UMOMessage message = client.send("vm://bookservice", s, null); 
+		response.setContentType("text/html；charset=gbk");
+		
+		
+		String userName = request.getParameter("userName");
+		String password = request.getParameter("password");
+		
+		System.out.println(userName);
+		System.out.println(password);
+		
+		//角色由ESB中众AMS系统中获得
+		String role = "admin";
+		request.setAttribute("role", role);
+		request.setAttribute("userName", userName);
+		
+		request.getRequestDispatcher("/WEB-INF/page/main.jsp").forward(request, response);
+		
+		response.sendRedirect("page/main.jsp");
 	}
 
 }
