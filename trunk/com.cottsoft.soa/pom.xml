@@ -15,6 +15,7 @@
 		<module>com.cottsoft.soa.app.sso</module>
 		<module>com.cottsoft.soa.app.ams</module>
 		<module>com.cottsoft.soa.esb.jboss</module>
+		<module>com.cottsoft.soa.esb.synapse</module>
 	</modules>
 
 	<properties>
