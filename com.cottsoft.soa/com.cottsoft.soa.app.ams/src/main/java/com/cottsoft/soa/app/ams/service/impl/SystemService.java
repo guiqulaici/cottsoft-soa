@@ -18,16 +18,6 @@
  */
 package com.cottsoft.soa.app.ams.service.impl;
 
-import org.mule.DefaultMuleMessage;
-import org.mule.api.MuleContext;
-import org.mule.api.MuleException;
-import org.mule.api.MuleMessage;
-import org.mule.api.client.LocalMuleClient;
-import org.mule.api.config.ConfigurationException;
-import org.mule.api.context.MuleContextFactory;
-import org.mule.api.lifecycle.InitialisationException;
-import org.mule.context.DefaultMuleContextFactory;
-
 import com.cottsoft.soa.app.ams.service.ISystemService;
 
 /**
@@ -44,21 +34,15 @@ public class SystemService implements ISystemService {
 	public String getSystemDate() {
 		String returnStr = "";
 		try {
-			MuleContextFactory muleContextFactory = new DefaultMuleContextFactory();  
-			
-			MuleContext context = muleContextFactory.createMuleContext();
-			context.start();   
-			   
-			LocalMuleClient client = context.getClient();   
-			MuleMessage reply  = client.send("http://localhost:8081/system", new DefaultMuleMessage("DATETIME",context));
-
-			returnStr = reply.getPayloadAsString();
-		} catch (InitialisationException e) {			
-			e.printStackTrace();
-		} catch (ConfigurationException e) {		
-			e.printStackTrace();
-		} catch (MuleException e) {		
-			e.printStackTrace();
+//			MuleContextFactory muleContextFactory = new DefaultMuleContextFactory();  
+//			
+//			MuleContext context = muleContextFactory.createMuleContext();
+//			context.start();   
+//			   
+//			LocalMuleClient client = context.getClient();   
+//			MuleMessage reply  = client.send("http://localhost:8081/system", new DefaultMuleMessage("DATETIME",context));
+//
+//			returnStr = reply.getPayloadAsString();
 		} catch (Exception e) {			
 			e.printStackTrace();
 		}
