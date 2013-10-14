@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cottsoft.soa.app.ams.service.IRoleService;
+import com.cottsoft.soa.app.ams.service.ISystemService;
 import com.cottsoft.soa.app.ams.service.impl.RoleService;
+import com.cottsoft.soa.app.ams.service.impl.SystemService;
 
 /**
  * Servlet implementation class LoginServlet
@@ -51,8 +53,12 @@ public class LoginServlet extends HttpServlet {
 		IRoleService roleService = new RoleService();
 		String role = roleService.getRole(userName);
 		
+		ISystemService systemService = new SystemService();
+		String systemDate = systemService.getSystemDate();
+		
 		request.setAttribute("role", role);
 		request.setAttribute("userName", userName);
+		request.setAttribute("systemDate", systemDate);
 		
 		request.getRequestDispatcher("/WEB-INF/page/main.jsp").forward(request, response);
 	}
