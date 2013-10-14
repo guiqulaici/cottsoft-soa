@@ -17,6 +17,10 @@
 			<td>Role:</td>
 			<td><%=request.getAttribute("role") %></td>
 		</tr>
+		<tr>
+			<td>System Date:</td>
+			<td><%=request.getAttribute("systemDate") %></td>
+		</tr>
 	</table>		
 	</body>
 </html>
