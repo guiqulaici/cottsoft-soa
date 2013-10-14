@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,12 +11,16 @@
 	<table>
 		<tr>
 			<td>USER ID:</td>
-			<td></td>
+			<td><%=request.getAttribute("userName")%></td>
 		</tr>
 		<tr>
-			<td>权限之角色:</td>
-			<td></td>
+			<td>Role:</td>
+			<td><%=request.getAttribute("role")%></td>
 		</tr>
-	</table>		
-	</body>
+		<tr>
+			<td>System Date:</td>
+			<td><%=request.getAttribute("systemDate")%></td>
+		</tr>
+	</table>
+</body>
 </html>
