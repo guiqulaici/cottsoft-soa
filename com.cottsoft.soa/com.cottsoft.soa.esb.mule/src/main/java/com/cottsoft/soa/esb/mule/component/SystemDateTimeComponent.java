@@ -32,7 +32,7 @@ import org.mule.api.lifecycle.Callable;
  * @version v1.0
  * @since   1.0
  */
-public class SystemComponent implements Callable{
+public class SystemDateTimeComponent implements Callable{
 	/**
 	 * Description: <br>
 	 * 返回系统当前时间
