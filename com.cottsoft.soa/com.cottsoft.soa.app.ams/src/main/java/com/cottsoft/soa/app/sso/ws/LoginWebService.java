@@ -16,28 +16,34 @@
  * Project website:
  *      http://www.cottsoft.com
  */
-package com.cottsoft.soa.app.ams.ws.api;
+package com.cottsoft.soa.app.sso.ws;
 
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
+import javax.jws.soap.SOAPBinding.Style;
 
 /**
  * Class Description: <br> 
- * 获得用户角色
+ * 
  * @author  Simon.Hoo(simon@cottsoft.com)
- * @date    Oct 4, 2013
+ * @date    2013年10月14日
  * @version v1.0
  * @since   1.0
  */
-@WebService(name="RoleWebService")
-public interface IRoleWebService {
-	
+@WebService
+@SOAPBinding(style = Style.RPC)
+public interface LoginWebService {
 	/**
 	 * Description: <br>
-	 * 获得用户角色
-	 * @param userName
+	 * 单点登录方法
+	 * @param arg0 用户ID
+	 * @param arg1 用户名 （加密后）
 	 * @return
 	 */
-	public String getUserRole(String userName);
+	@WebMethod
+	public boolean ssoLogin(@WebParam(name = "userId") String userId,@WebParam(name = "password") String password);
 }
 
 
