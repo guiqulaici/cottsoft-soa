@@ -18,11 +18,13 @@
  */
 package com.cottsoft.soa.app.ams.ws;
 
-import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
+
+import com.cottsoft.soa.app.ams.service.IRoleService;
+import com.cottsoft.soa.app.ams.service.impl.RoleService;
 
 /**
  * Class Description: <br> 
@@ -34,10 +36,14 @@ import javax.jws.soap.SOAPBinding.Style;
  */
 @WebService
 @SOAPBinding(style = Style.RPC)
-public interface RoleWebService {
+public class RoleWebServiceImpl implements RoleWebService {
 
-	@WebMethod
-	public String  getRole(@WebParam(name = "userId") String userId);
+	@Override
+	public String getRole(@WebParam(name = "userId") String userId) {
+		IRoleService roleService = new RoleService();
+		return roleService.getRole(userId);
+	}
+
 }
 
 

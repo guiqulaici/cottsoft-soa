@@ -16,28 +16,18 @@
  * Project website:
  *      http://www.cottsoft.com
  */
-package com.cottsoft.soa.app.ams.ws;
-
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
-import javax.jws.soap.SOAPBinding.Style;
+package com.cottsoft.soa.app.ams.service;
 
 /**
  * Class Description: <br> 
  * 
  * @author  Simon.Hoo(simon@cottsoft.com)
- * @date    2013年10月14日
+ * @date    2013年10月15日
  * @version v1.0
  * @since   1.0
  */
-@WebService
-@SOAPBinding(style = Style.RPC)
-public interface RoleWebService {
-
-	@WebMethod
-	public String  getRole(@WebParam(name = "userId") String userId);
+public interface ILoginService {
+	public boolean doLogin(String userId,String password);
 }
 
 
