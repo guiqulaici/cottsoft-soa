@@ -32,8 +32,22 @@ public class RoleService implements IRoleService {
 
 	@Override
 	public String getRole(String userId) {
-		String returnStr = "admin";
-		//
+		String returnStr = "";
+		try{
+//			JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
+//			factory.setServiceClass(LoginWebService.class);
+//			//factory.setAddress("http://localhost:8080/com.cottsoft.soa.app.ams/ws/RoleWebService");
+//			factory.setAddress("http://localhost:6001/roleWebService");
+//			RoleWebService service = (RoleWebService) factory.create();
+//			System.out.println("#############Client getRole##############");
+//			
+//			returnStr = service.getRole(userId);
+
+			returnStr = "admin";
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
 		return returnStr;
 	}
 
