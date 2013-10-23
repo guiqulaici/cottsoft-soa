@@ -40,27 +40,30 @@ public class LoginService implements ILoginService {
 			JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
 			factory.setServiceClass(LoginWebService.class);
 			//factory.setAddress("http://localhost:8080/com.cottsoft.soa.app.sso/ws/LoginWebService");
-			factory.setAddress("http://localhost:6001/ssoLogin");
+			factory.setAddress("http://localhost:6002/loginWebService");
 			LoginWebService service = (LoginWebService) factory.create();
 			System.out.println("#############Client ssoLogin##############");
 			
 			returnBol = service.ssoLogin(userId, password);
 
 		}catch(Exception e){
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		
 		return returnBol;
 	}
 
 	public static void main(String[] args) {
-		JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
-		factory.setServiceClass(LoginWebService.class);
-		factory.setAddress("http://localhost:6001/ssoLogin");
-		LoginWebService service = (LoginWebService) factory.create();
-		System.out.println("#############Client ssoLogin##############");
-		boolean b = service.ssoLogin("aaa", "aaaaa.123");
-		System.out.println(b);
-
+		try{
+			JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
+			factory.setServiceClass(LoginWebService.class);
+			factory.setAddress("http://localhost:6002/loginWebService");
+			LoginWebService service = (LoginWebService) factory.create();
+			System.out.println("#############Client ssoLogin##############");
+			boolean b = service.ssoLogin("aaa", "aaaaa.123");
+			System.out.println(b);
+		}catch(Exception e){
+			
+		}
 	}
 }
