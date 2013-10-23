@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd 
 	http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd">
 	
-	<ws:proxy name="muleWsProxy-sso" inboundAddress="http://localhost:6002/loginWebService"
-		outboundAddress="http://localhost:8080/com.cottsoft.soa.app.sso/ws/LoginWebService" />
+	<ws:proxy name="muleWsProxy-role" inboundAddress="http://localhost:6001/roleWebService"
+		outboundAddress="http://localhost:8080/com.cottsoft.soa.app.ams/ws/RoleWebService" />
 		
 </mule>  

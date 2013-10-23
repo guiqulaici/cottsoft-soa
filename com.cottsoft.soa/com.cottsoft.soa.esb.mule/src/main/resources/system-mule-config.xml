@@ -6,7 +6,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">  
 	<flow name="systemDateTimeFlow" doc:name="systemDateTimeFlow">
 		<http:inbound-endpoint exchange-pattern="request-response"
-			host="localhost" port="6001" path="system" doc:name="HTTP" />
+			host="localhost" port="6003" path="system" doc:name="HTTP" />
 		<component class="com.cottsoft.soa.esb.mule.component.SystemDateTimeComponent" doc:name="Java" />
 	</flow>
 </mule>

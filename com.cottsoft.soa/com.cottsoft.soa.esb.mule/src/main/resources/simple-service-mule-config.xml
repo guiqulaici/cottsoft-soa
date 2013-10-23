@@ -7,10 +7,10 @@
       http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/3.4/mule-scripting.xsd
       http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd" >
  
-    <simple-service name="hello" address="http://localhost:8080/hello">
+    <simple-service name="hello" address="http://localhost:6000/hello">
         <script:component>
             <script:script engine="groovy">
-                <script:text>return "Hello World"</script:text>
+                <script:text>return "Hello,User! This Message from ESB server."</script:text>
             </script:script>
         </script:component>
     </simple-service>
