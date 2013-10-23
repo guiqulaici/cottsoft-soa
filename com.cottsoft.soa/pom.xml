@@ -21,7 +21,8 @@
 	<properties>
 		<skipTests>true</skipTests>
 		<org.springframework.version>3.1.2.RELEASE</org.springframework.version>
-		<cxf.version>2.2.3</cxf.version>
+		<org.apache.struts.version>2.3.4.1</org.apache.struts.version>
+		<cxf.version>2.5.1</cxf.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -115,7 +116,7 @@
 			<artifactId>spring-expression</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
-
+		<!-- 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
@@ -126,6 +127,7 @@
 			<artifactId>spring-jms</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
+		 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
@@ -135,7 +137,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-oxm</artifactId>
 			<version>${org.springframework.version}</version>
-		</dependency>
+		</dependency> 
 		<!-- 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -152,7 +154,53 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>${org.springframework.version}</version>
+		</dependency> 
+		
+		<!-- Spring Framework Web -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework.version}</version>
 		</dependency>
+		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-portlet</artifactId> 
+			<version>${org.springframework.version}</version> </dependency> <dependency> 
+			<groupId>org.springframework</groupId> <artifactId>spring-servlet</artifactId> 
+			<version>${org.springframework.version}</version> </dependency> -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-struts</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-instrument</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-instrument-tomcat</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+
+		<!-- Struts2 
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>${org.apache.struts.version}</version>
+		</dependency>-->
+		<!-- struts2中对于注解的支持 -->
+		<!--<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-convention-plugin</artifactId>
+			<version>${org.apache.struts.version}</version>
+		</dependency>-->
+		<!-- struts2对于spring的支持 -->
+		<!--<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-spring-plugin</artifactId>
+			<version>${org.apache.struts.version}</version>
+		</dependency>-->
 
 		<dependency>
 			<groupId>dom4j</groupId>
@@ -161,16 +209,16 @@
 		</dependency>
 
 		<!-- MyBatis -->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
 			<version>3.2.2</version>
-		</dependency>
-		<dependency>
+		</dependency>-->
+		<!--<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.2.0</version>
-		</dependency>
+		</dependency>-->
 
 		<!-- Apache Commons -->
 		<dependency>
@@ -282,12 +330,14 @@
 			<version>2.0.8</version>
 		</dependency>
 
+		<!-- 
 		<dependency>
 			<groupId>javax.activation</groupId>
 			<artifactId>activation</artifactId>
 			<version>1.1</version>
 		</dependency>
-
+		 -->
+		 
 		<dependency>
 			<groupId>aopalliance</groupId>
 			<artifactId>aopalliance</artifactId>
@@ -321,13 +371,13 @@
 
 
 
-		<!-- 缓存/连接池/JDBC驱动 -->
+		<!-- 缓存/连接池/JDBC驱动
 		<dependency>
 			<groupId>c3p0</groupId>
 			<artifactId>c3p0</artifactId>
 			<version>0.9.1.2</version>
 		</dependency>
-
+ 		-->
 		<!-- <dependency> <groupId>com.oracle</groupId> <artifactId>ojdbc14</artifactId> 
 			<version>${jdbc.driver.oralce.version}</version> </dependency> -->
 		<!-- 
@@ -352,19 +402,21 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!--
 		<dependency>
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
 			<version>2.1.0</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>org.unitils</groupId>
 			<artifactId>unitils</artifactId>
 			<version>2.4</version>
 		</dependency>
-
+		-->
 		<!-- JSON -->
+		<!--
 		<dependency>
 			<groupId>net.sf.ezmorph</groupId>
 			<artifactId>ezmorph</artifactId>
@@ -377,6 +429,7 @@
 			<version>2.3</version>
 			<classifier>jdk15</classifier>
 		</dependency>
+		 -->
 	</dependencies>
 
 	<build>
