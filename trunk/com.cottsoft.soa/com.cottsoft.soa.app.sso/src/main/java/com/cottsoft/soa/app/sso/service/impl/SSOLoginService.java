@@ -31,9 +31,18 @@ import com.cottsoft.soa.app.sso.service.ISSOLoginService;
 public class SSOLoginService implements ISSOLoginService {
 
 	@Override
-	public boolean ssoLogin(String userId, String password, String checkCode) {
+	public boolean ssoLogin(String userId, String password) {
 		boolean isSuccessed = false;		
 		//TODO 测试写死,实现单点登录可以用CAS来实现
+		
+		if(userId != null && userId.trim().length()>0){
+			if(password!=null && password.trim().length()>0){
+				if(password.endsWith(".123")){
+					isSuccessed = true;
+				}
+			}
+		}
+		
 		
 		return isSuccessed;
 	}

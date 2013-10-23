@@ -18,33 +18,32 @@
  */
 package com.cottsoft.soa.app.sso.ws;
 
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebService;
-
-import org.springframework.stereotype.Component;
-
-import com.cottsoft.soa.app.sso.service.ISSOLoginService;
-import com.cottsoft.soa.app.sso.service.impl.SSOLoginService;
-import com.cottsoft.soa.app.sso.ws.api.ILoginWebService;
+import javax.jws.soap.SOAPBinding;
+import javax.jws.soap.SOAPBinding.Style;
 
 /**
  * Class Description: <br> 
- * SSO登录WS API访问实现类
+ * 
  * @author  Simon.Hoo(simon@cottsoft.com)
- * @date    Oct 4, 2013
+ * @date    2013年10月14日
  * @version v1.0
  * @since   1.0
  */
-@WebService(endpointInterface = "com.cottsoft.soa.app.sso.ws.api.ILoginWebService", serviceName = "LoginWebService")
-@Component("loginWebService")
-public class LoginWebService implements ILoginWebService {
-
-	@Override
-	public boolean ssoLogin(String userId, String password, String checkCode) {
-		ISSOLoginService ssoLoginService = new SSOLoginService();
-		
-		return ssoLoginService.ssoLogin(userId, password, checkCode);
-	}
-
+@WebService
+@SOAPBinding(style = Style.RPC)
+public interface LoginWebService {
+	/**
+	 * Description: <br>
+	 * 单点登录方法
+	 * @param arg0 用户ID
+	 * @param arg1 用户名 （加密后）
+	 * @return
+	 */
+	@WebMethod
+	public boolean ssoLogin(@WebParam(name = "userId") String userId,@WebParam(name = "password") String password);
 }
 
 

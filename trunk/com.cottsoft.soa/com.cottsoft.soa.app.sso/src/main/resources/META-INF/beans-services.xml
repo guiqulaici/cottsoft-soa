@@ -10,15 +10,23 @@
 	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 
+	<bean id="loginServiceBean" class="com.cottsoft.soa.app.sso.ws.LoginWebServiceImpl" />
 
-	<!-- 新添加的内容 start -->
-	<jaxws:server id="loginWebService" serviceClass="com.cottsoft.soa.app.sso.ws.api.ILoginWebService"
+	<!-- 注意下面的address，这里的address的名称就是访问的WebService的name -->
+	<jaxws:server id="loginService" serviceClass="com.cottsoft.soa.app.sso.ws.LoginWebService"
 		address="/LoginWebService">
+		<jaxws:serviceBean>        <!-- 要暴露的 bean 的引用 -->
+			<ref bean="loginServiceBean" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+	<!-- 新添加的内容 start 
+	<jaxws:server id="loginWebService"
+		serviceClass="com.cottsoft.soa.app.sso.ws.LoginWebService" address="/LoginWebService">
 		<jaxws:serviceBean>
 			<ref bean="loginWebService" />
 		</jaxws:serviceBean>
 	</jaxws:server>
-	<!-- 新添加的内容 end -->
-
+	-->
 </beans>
 
