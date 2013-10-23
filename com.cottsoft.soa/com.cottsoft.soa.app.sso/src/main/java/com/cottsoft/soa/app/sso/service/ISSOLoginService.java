@@ -33,10 +33,9 @@ public interface ISSOLoginService {
 	 * SSO业务
 	 * @param userId
 	 * @param password
-	 * @param checkCode
 	 * @return
 	 */
-	public boolean ssoLogin(String userId,String password,String checkCode);
+	public boolean ssoLogin(String userId,String password);
 }
 
 
