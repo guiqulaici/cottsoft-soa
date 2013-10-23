@@ -47,7 +47,7 @@ public class SystemService implements ISystemService {
 			context.start();   
 			   
 			LocalMuleClient client = context.getClient();   
-			MuleMessage reply  = client.send("http://localhost:6001/system", new DefaultMuleMessage("DATETIME",context));
+			MuleMessage reply  = client.send("http://localhost:6003/system", new DefaultMuleMessage("DATETIME",context));
 
 			returnStr = reply.getPayloadAsString();
 		} catch (Exception e) {			

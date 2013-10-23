@@ -18,7 +18,10 @@
  */
 package com.cottsoft.soa.app.hr.service.impl;
 
+import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
+
 import com.cottsoft.soa.app.hr.service.ILoginService;
+import com.cottsoft.soa.app.sso.ws.LoginWebService;
 
 /**
  * Class Description: <br> 
@@ -32,7 +35,33 @@ public class LoginService implements ILoginService {
 
 	@Override
 	public boolean doLogin(String userId, String password) {
-		return true;
+		boolean returnBol = false;
+		try{
+			JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
+			factory.setServiceClass(LoginWebService.class);
+			//factory.setAddress("http://localhost:8080/com.cottsoft.soa.app.sso/ws/LoginWebService");
+			factory.setAddress("http://localhost:6002/loginWebService");
+			LoginWebService service = (LoginWebService) factory.create();
+			System.out.println("#############Client ssoLogin##############");
+			
+			returnBol = service.ssoLogin(userId, password);
+
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return returnBol;
+	}
+	
+	public static void main(String[] args) {
+		JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
+		factory.setServiceClass(LoginWebService.class);
+		factory.setAddress("http://localhost:6002/loginWebService");
+		LoginWebService service = (LoginWebService) factory.create();
+		System.out.println("#############Client ssoLogin##############");
+		boolean b = service.ssoLogin("aaa", "aaaaa.123");
+		System.out.println(b);
+
 	}
 
 }
